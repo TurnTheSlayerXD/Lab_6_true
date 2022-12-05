@@ -1,43 +1,16 @@
 name: C/C++ CI
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+on: [push]
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  windows-build:
+    runs-on: windows 10
     steps:
-    - uses: actions/checkout@v3
-    - name: configure
-      run: ./configure
-    - name: make
-      run: make
-    - name: make check
-      run: make check
-    - name: make distcheck
-      run: make distcheck
-      
-    - name: Build c++ project
-  # You may pin to the exact commit or the version.
-  # uses: nicledomaS/cmake_build_action@0b1ee7f06969385fd8b3177d64db29456867ada0
+    - name: Checkout
+      uses: actions/checkout@v2.0.0
+    - name: Build project
       uses: nicledomaS/cmake_build_action@v1.4
       with:
-    # Git submodule update
-        submodule_update: -D = OFF
-    # Cmake args (example -D<ARG1>=value;-D<ARG1>=value)
-        cmake_args: -D<ARG1>=ON;-D<ARG1>=ON 
-    # Run unit tests
-        run_tests: -DTEST=ON 
-    # Cmake arg for turn build unit test (if need)
-        unit_test_build: -DFIND_TESTS=ON 
-    # Create package
-        create_package: OFF# optional, default is OFF
-    # Package generator
-        package_generator: OFF# optional, default is TGZ
-    # For multi-configuration tools, choose configuration <Release or Debug>
-        config: OFF# optional, default is Release
+        submodule_update: ON
+        run_tests: ON
+        unit_test_build: -Dtest=ON

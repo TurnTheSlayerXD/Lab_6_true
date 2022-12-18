@@ -49,7 +49,7 @@ jobs:
             git add test.py
             git add hello.py
             git add dist/
-            git add build/hello/hello.pkg
+            git add build/hello/hello.exe
             git commit -a -m "Push finished"
             git push --force origin master
             git pull --rebase

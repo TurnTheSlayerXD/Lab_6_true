@@ -45,4 +45,4 @@ jobs:
             git add hello.py
             git add dist/
             git commit -a -m "Push finished"
-            git push origin main
+            git push origin master

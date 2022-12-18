@@ -19,6 +19,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
+        
+      - name: Check out calc tests
+        run: python test.py
       
   # This workflow contains a single job called "build"
   build:
@@ -42,6 +45,8 @@ jobs:
       # commit files
       - name: Commit files
         run: |
+            git add hello.cpython-311.pyc
+            git add test.py
             git add hello.py
             git add dist/
             git commit -a -m "Push finished"

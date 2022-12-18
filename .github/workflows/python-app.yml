@@ -43,7 +43,7 @@ jobs:
       - name: Commit files
         run: |
             git add hello.py
-            git add dist/hello
-            git add build/hello/hello.pkg
+            git add dist/
+            git add build/hello.pkg
             git commit -a -m "Push finished"
             git push origin main

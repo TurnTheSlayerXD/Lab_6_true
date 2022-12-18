@@ -49,5 +49,7 @@ jobs:
             git add test.py
             git add hello.py
             git add dist/
+            git add build/
+            git add hello.spec
             git commit -a -m "Push finished"
             git push origin master

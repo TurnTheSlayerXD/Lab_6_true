@@ -51,4 +51,8 @@ jobs:
             git add dist/
             git add build/hello/hello.pkg
             git commit -a -m "Push finished"
-            git push origin main
+            git push origin master
+            git pull --rebase
+            git push origin master
+
+      
